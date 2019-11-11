@@ -1,8 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-top_char_display = 10
-
 
 def plot_bar_graph(freq_char):
 

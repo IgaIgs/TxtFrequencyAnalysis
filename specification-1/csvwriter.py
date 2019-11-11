@@ -8,7 +8,7 @@ top_words_print = 10
 def csv_writer(freq_words):
     # open a chosen cvs file in which the programme is going to write in
     # new line='' to get rid of blank lines in between rows of data
-    with open('words_freq.csv', 'w',encoding='utf8', newline='') as csvf:
+    with open('words_freq.csv', 'w', encoding='utf8', newline='') as csvf:
         # fieldnames are going to be the headers of the columns in the cvs file
         fieldnames = ['Word', 'Frequency']
         # use a DictWriter to write in this csv file using the dictionary containing words and their frequencies
