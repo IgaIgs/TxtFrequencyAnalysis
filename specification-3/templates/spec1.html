@@ -1,43 +1,70 @@
+<!-- Creates the spec1 html file -->
 <!DOCTYPE html>
     <html>
         <head>
+            <!-- Sets the title for the web page -->
             <title>Home Page - Group</title>
+            <!-- starts a style sheet for the web page -->
             <style>
-            body {
+            /* sets up the text constraints that are accessed from the style sheet */
+            body
+            {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             }
 
-            .navigation {
+            /* sets the background colour of the navigation bar */
+            .navigation
+            {
             overflow: hidden;
             background-color: #263859;
             }
 
-            .navigation a {
+            /* sets up the text constraints that are accessed from the style sheet */
+            .navigation a
+            {
             float: left;
+            /* Sets the colour of the text */
             color: #f2f2f2;
+            /* Sets the proportion of each tab*/
             width: 20%;
+            /* Sets the positions of the text on the navigation bar to the center */
             text-align: center;
+            /* Gives padding around the text */
             padding: 15px 14px;
             text-decoration: none;
+            /* Sets the font size */
             font-size: 17px;
             }
 
-            .navigation a:hover {
+            /* for when the mouse is above a tab */
+            .navigation a:hover
+            {
+            /* Changes the colour of the tabs */
             background-color: #ddd;
+            /* sets the text colour to black */
             color: black;
             }
 
-            .navigation a.active {
+            /* for the active navigation bar */
+            .navigation a.active
+            {
+            /* Sets the active tabs background colour */
             background-color: #ff6768;
+            /* Sets the text colour */
             color: white;
             }
-            body{
+
+            /* sets the background colour of the web page */
+            body
+            {
             background-color: #161c33;
             }
         </style>
         </head>
+        <!-- contains the calls for the navigation class styling -->
         <div class="navigation">
+            <!-- Creates links to other pages and displays the text to display in each tab -->
             <a href="/home">Home</a>
             <a class="active" href="/first">Specification 1</a>
             <a href="/second">Specification 2</a>
@@ -47,17 +74,25 @@
 
         <body>
             <center>
+                <!-- Creates a style to pad text on the page-->
                 <style>
                 div.ex1
                 {
+                    /* sets the width of the container */
                     width: 1000px;
+                    /* sets the padding of the container both horizontally and vertically */
                     padding: 25px;
                     padding-bottom: 100px;
+                    /* sets the background colour of the container */
                     background-color: #172235;
                 }
                 </style>
-                <div class="ex1"><font color = "gray"> <h2> Welcome to the Home Page of Team 1's CSC1034 Group Project!<br>
-                    ------------------------------------------------------------------------------------------------------
+                <!-- Calls the to previously defined style to display the text on -->
+                <div class="ex1"><font color = "gray"> <h2> Welcome to Specification 1<br>
+                    -------------------------------------------<br>
+                    <br>
+                    <h3>INSERT DESCRIPTION OF SPECIFICATION 1
+                    </h3>
                 </h2></font></div>
             </center>
         </body>
