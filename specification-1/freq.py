@@ -1,23 +1,27 @@
 import collections
-
+import string
+import char_freq_plot
+import csvwriter
 
 freq_counter = collections.Counter
 
 
 # counting how many instances of each word are in the file using the counter function in collections library
 def count_words(analysed_file_read):
-    #create an empty disctionary to whcih the words and their counts will be added
+    # create an empty dictionary to which the words and their counts will be added
     words_freq = dict()
     for line in analysed_file_read:
         # split the lines into words
-        word = line.split(" ")
-        for w in word:
-            #check whether the word is in the dictionary and up its counter by 1
+        words = line.split()
+        for w in words:
+            # get rid of punctuation (WHY IS THIS NOT WORKING)
+            # w.translate(str.maketrans('', '', string.punctuation))
+            # check whether the word is in the dictionary and up its counter by 1
             if w in words_freq:
                 words_freq[w] += 1
             else:
                 words_freq[w] = 1
-    return(words_freq)
+    return words_freq
 
 
 # counting the instances of each of the characters in the file
@@ -39,4 +43,5 @@ if __name__ == '__main__':
     freq_char = count_characters(analysed_file_read)
     print(freq_words)
     print(freq_char)
-    #csvwriter.csv_writer(freq_words)
+    csvwriter.csv_writer(freq_words)
+    char_freq_plot.plot_bar_graph(freq_char)
