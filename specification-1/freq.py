@@ -5,36 +5,51 @@ import csvwriter
 
 freq_counter = collections.Counter
 
+# file path of an example book
+book = '../resources/txt/test_file.txt'
+# input the file path of the file you want to analyse
+analysed_file = '../resources/txt/book.txt'
+
 
 # counting how many instances of each word are in the file using the counter function in collections library
 def count_words(analysed_file_read):
+    f = open(analysed_file, "r", encoding='utf8')
+    analysed_file_read = f.read().lower().splitlines()
     # create an empty dictionary to which the words and their counts will be added
     words_freq = dict()
     for line in analysed_file_read:
         # split the lines into words
-        words = line.split()
+        words = line.translate(str.maketrans('', '', string.punctuation)).split()
         for w in words:
-            # get rid of punctuation (WHY IS THIS NOT WORKING)
-            # w.translate(str.maketrans('', '', string.punctuation))
             # check whether the word is in the dictionary and up its counter by 1
             if w in words_freq:
                 words_freq[w] += 1
             else:
                 words_freq[w] = 1
-    return words_freq
+    # put the frequency of words in order from the most frequent to the least frequent by turning the dictionary
+    # into a list of tuples
+    output = {}
+    words_freq_sorted = sorted(words_freq.items(), key=lambda kv: kv[1], reverse=True)
+    for i in words_freq_sorted:
+        output[i[0]] = i[1]
+    return(output)
+    #return words_freq
 
 
 # counting the instances of each of the characters in the file
 def count_characters(analysed_file_read):
+    f = open(analysed_file, "r", encoding='utf8')
+    analysed_file_read = f.read().lower().replace(' ', '').splitlines()
     temp_string = "".join(analysed_file_read)
+    #freq_counter_sorted = sorted(freq_counter(temp_string).items(), key = lambda kv: kv[1, reverse=True]))
     return freq_counter(temp_string)
 
 
 if __name__ == '__main__':
     # file path of an example book
-    book = "../resources/txt/book.txt"
+   # book = '../resources/txt/test_file.txt'
     # input the file path of the file you want to analyse
-    analysed_file = '../resources/txt/test_file.txt'
+    # analysed_file = '../resources/txt/book.txt'
 
     f = open(analysed_file, "r", encoding='utf8')
     analysed_file_read = f.read().lower().splitlines()
