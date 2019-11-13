@@ -73,7 +73,7 @@
             <p><font color = "white">CSC2014 Group Project</font></p>
         </div>
 
-        <body>
+        <body onload="readFile();">
             <center>
                 <!-- Creates a style to pad text on the page-->
                 <style>
@@ -98,12 +98,13 @@
                     <h2> Welcome to Specification 1<br>
                     -------------------------------------------<br>
                     <br>
-                        <?php
-echo readfile("test.txt");
-?>
-
                     </h2>
                     </font>
+
+<pre align ="left">
+{{ text }}
+</pre>
+
                 </div>
             </center>
         </body>

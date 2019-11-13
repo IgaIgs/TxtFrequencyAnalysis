@@ -1,5 +1,6 @@
 # imports the Flask library and installs the needed libraries
 from flask import Flask, render_template, redirect, url_for, request
+
 app = Flask(__name__)
 
 
@@ -36,8 +37,11 @@ def home():
 @app.route('/first')
 # defines the first function, anything outside will be rendered in the browser
 def first():
+    text = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-1/char_freq_plot.py', 'r+')
+    content = text.read()
+    text.close()
     # renders the spec1.html file
-    return render_template("spec1.html")
+    return render_template("spec1.html", text=content)
 
 
 # binds a URL to the second function
