@@ -1,11 +1,18 @@
+<!-- Creates the spec4 html file -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Specification 3</title>
+    <html>
+        <head>
+            <!-- Sets the title for the web page -->
+            <title>Home Page - Group</title>
+            <!-- starts a style sheet for the web page -->
+            <style>
+            /* sets up the text constraints that are accessed from the style sheet */
+            body
+            {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            }
 
-
-    <style>
             /* sets the background colour of the navigation bar */
             .navigation
             {
@@ -30,21 +37,68 @@
             font-size: 17px;
             }
 
+            /* for when the mouse is above a tab */
+            .navigation a:hover
+            {
+            /* Changes the colour of the tabs */
+            background-color: #ddd;
+            /* sets the text colour to black */
+            color: black;
+            }
 
-         /* sets the background colour of the web page */
+            /* for the active navigation bar */
+            .navigation a.active
+            {
+            /* Sets the active tabs background colour */
+            background-color: #ff6768;
+            /* Sets the text colour */
+            color: white;
+            }
+
+            /* sets the background colour of the web page */
             body
             {
             background-color: #161c33;
             }
-    </style>
-</head>
-<div class="navigation">
-            <a class="active" href="/second">Home </a>
+        </style>
+        </head>
+        <!-- contains the calls for the navigation class styling -->
+        <div class="navigation">
+            <!-- Creates links to other pages and displays the text to display in each tab -->
+            <a href="/home">Home</a>
+            <a href="/first">Specification 1</a>
+            <a href="/second">Specification 2</a>
+            <a class="active" href="/third">Specification 3</a>
+            <a href="/fourth">Specification 4</a>
+            <p><font color = "white">CSC2014 Group Project</font></p>
         </div>
-    <center><font color = "white"><h1> Welcome to this web page! </h1></font></center>
-    <center><font color ="white"><h3> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br>
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris <br>
-        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum <br>
-        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia <br>
-        deserunt mollit anim id est laborum. </h3></font></center>
-</html>
+
+        <body>
+            <center>
+                <!-- Creates a style to pad text on the page-->
+                <style>
+                div.ex1
+                {
+                    /* sets the width of the container */
+                    width: 1000px;
+                    /* sets the padding of the container both horizontally and vertically */
+                    padding: 25px;
+                    padding-bottom: 100px;
+                    /* sets the background colour of the container */
+                    background-color: #172235;
+                }
+
+                </style>
+                <!-- Calls the to previously defined style to display the text on-->
+                <div class="ex1"><font color = "gray"> <h2> Welcome to Specification 3<br>
+                    ------------------------------------------- <br>
+                    <br>
+                    <h3>INSERT DESCRIPTION OF SPECIFICATION 3
+
+                    </h3>
+                </h2></font></div>
+            </center>
+            <h2></h2>
+        </body>
+
+    </html>

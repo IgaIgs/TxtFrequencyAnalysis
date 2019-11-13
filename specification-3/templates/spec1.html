@@ -68,6 +68,7 @@
             <a href="/home">Home</a>
             <a class="active" href="/first">Specification 1</a>
             <a href="/second">Specification 2</a>
+            <a href="/third">Specification 3</a>
             <a href="/fourth">Specification 4</a>
             <p><font color = "white">CSC2014 Group Project</font></p>
         </div>
@@ -86,14 +87,24 @@
                     /* sets the background colour of the container */
                     background-color: #172235;
                 }
+                div.ex2
+                {
+                    white-space: pre-wrap;
+                }
                 </style>
                 <!-- Calls the to previously defined style to display the text on -->
-                <div class="ex1"><font color = "gray"> <h2> Welcome to Specification 1<br>
+                <div class="ex1">
+                    <font color = "gray">
+                    <h2> Welcome to Specification 1<br>
                     -------------------------------------------<br>
                     <br>
-                    <h3>INSERT DESCRIPTION OF SPECIFICATION 1
-                    </h3>
-                </h2></font></div>
+                        <?php
+echo readfile("test.txt");
+?>
+
+                    </h2>
+                    </font>
+                </div>
             </center>
         </body>
 
