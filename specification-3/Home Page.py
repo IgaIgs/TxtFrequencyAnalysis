@@ -60,8 +60,12 @@ def first():
 @app.route('/second')
 # defines the second function, anything outside will be rendered in the browser
 def second():
+    # gets the file path for image manipulation and will allow me to display it
+    text = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-2/image_manipulation.py', 'r+')
+    # sets a variable content to text
+    content = text.read()
     # renders the spec2.html file
-    return render_template("spec2.html")
+    return render_template("spec2.html", text=content)
 
 # binds a URL to the third function
 @app.route('/third')
@@ -74,8 +78,12 @@ def third():
 @app.route('/fourth')
 # defines the fourth function, anything outside will be rendered in the browser
 def fourth():
+    # gets the file path for spec4 and will allow me to display it
+    text = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-4/web_scraping_olly/web_scraping_olly.py', 'r+')
+    # sets a variable content to text
+    content = text.read()
     # renders the spec4.html file
-    return render_template("spec4.html")
+    return render_template("spec4.html", text=content)
 
 
 # takes the name of the current module as an argument
