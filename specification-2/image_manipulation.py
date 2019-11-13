@@ -1,4 +1,4 @@
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageColor
 from pathlib import Path
 
 impath = Path("""C:/Users/nick/Desktop/Jordan Practicals/Team-Project/practical-3/resources/img/spec2-images""")
@@ -90,7 +90,7 @@ im20 = Image.open(thumb_path/'image-20.jpg')
 
 # Defining the repeating process
 def script():
-    # Selecting the image by user input
+    """Selecting the image by user input"""
     while True:
         try:
             select_image = int(input('\nWhat image would you like to edit?\nPlease choose a number from 1-20. '))
@@ -142,58 +142,129 @@ def script():
 
     im_to_edit.show()
 
-    # Asking user if they want a box blur
-    box_blur = input('\nWould you like to add a box blur? ').lower()
+    def askforbox():
+        # Asking user if they want a box blur
+        box_blur = input('\nWould you like to add a box blur? ').lower()
 
-    if box_blur == 'yes':
-        def boxblur():
-            # Asking for a value if they do
-            rad = int(input('\nA box blur with what strength? '))
-            im_to_edit.filter(ImageFilter.BoxBlur(rad)).show()  # gives back a ValueError: Operation on closed image
-        boxblur()
+        if box_blur == 'yes':
+            def boxblur():
+                """Asking for a value if they do"""
+                rad = int(input('\nA box blur with what strength? '))
+                im_to_edit.filter(ImageFilter.BoxBlur(rad)).show()
+            boxblur()
+            im_to_edit.save()
+        elif box_blur == 'no':
+            print('\nAn box blur will not be added.')
+        else:
+            print('\nSorry, I did not understand that! Please try again')
+            askforbox()
+    askforbox()
+
+    def askforrank():
+        # Asking if they want a rank filter
+        rank_filter = input('\nWould you like to add a rank filter? ').lower()
+
+        if rank_filter == 'yes':
+            def rankfilter():
+                """Asking for integer input if they do"""
+                while True:
+                    size = int(input('\nA rank filter with what size? '))
+                    rank = int(input('And what pixel value would you like to pick? '))
+                    try:
+                        im_to_edit.filter(ImageFilter.RankFilter(size, rank)).show()
+                        break
+                    # Asks again if the input is not valid
+                    except ValueError:
+                        print('\nThis is a bad filter size. Please try again.')
+            rankfilter()
+            im_to_edit.save()
+        elif rank_filter == 'no':
+            print('\nAn rank filter will not be added.')
+        else:
+            print('\nSorry, I did not understand that! Please try again')
+            askforrank()
+    askforrank()
+
+    def askforunsharp():
+        # Asks if user wants an unsharp mask filter
+        unsharp_mask = input('\nWould you like to add an unsharp mask filter? ').lower()
+
+        if unsharp_mask == 'yes':
+            def unsharp():
+                """Asks for inputs if they do"""
+                rad = int(input('\nAn unsharp mask filter with what radius? '))
+                percent = int(input('And with what strength? '))
+                threshold = int(input('And with what minimum brightness change? '))
+                im_to_edit.filter(ImageFilter.UnsharpMask(rad, percent, threshold)).show()
+            unsharp()
+            im_to_edit.save()
+        elif unsharp_mask == 'no':
+            print('\nAn unsharp mask filter will not be added.')
+        else:
+            print('\nSorry, I did not understand that! Please try again')
+            askforunsharp()
+    askforunsharp()
+
+    # Asking if they want the image to be greyscale
+    grey = input('\nWould you like to convert the image to greyscale? ').lower()
+
+    if grey == 'yes':
+        im_to_edit.convert('L').show()
         im_to_edit.save()
     else:
-        print('\nA box blur will not be added.')
+        print('\nThe image will maintain its original colours.')
 
-    # Asking if they want a rank filter
-    rank_filter = input('\nWould you like to add a rank filter? ').lower()  # Change this to another filter
+    # Altering the image brightness
+    rgb = input('\nWould you like to make this image dimmer or brighter? ').lower()
 
-    if rank_filter == 'yes':
-        def rankfilter():
-            # Asking for integer input if they do
-            while True:
-                size = int(input('\nA rank filter with what size? '))
-                rank = int(input('And what pixel value would you like to pick? '))
-                try:
-                    im_to_edit.filter(ImageFilter.RankFilter(size, rank)).show()
-                    break
-                # Asks again if the input is not valid
-                except ValueError:
-                    print('\nThis is a bad filter size. Please try again.')
-        rankfilter()
-        im_to_edit.save()
-    else:
-        print('\nA gaussian blur will not be added.')
+    def half(val):
+        return val // 2
 
-    # Asks if user wants an unsharp mask filter
-    unsharp_mask = input('\nWould you like to add an unsharp mask filter? ').lower()
+    def quarter(val):
+        return val // 4
 
-    if unsharp_mask == 'yes':
-        def unsharp():
-            # Asks for inputs if they do
-            rad = int(input('\nAn unsharp mask filter with what radius? '))
-            percent = int(input('And with what strength? '))
-            threshold = int(input('And with what minimum brightness change? '))
-            im_to_edit.filter(ImageFilter.UnsharpMask(rad, percent, threshold)).show()
-        unsharp()
-        im_to_edit.save()
+    def sixth(val):
+        return val // 6
+
+    def two(val):
+        return val * 2
+
+    def four(val):
+        return val * 4
+
+    def six(val):
+        return val * 6
+    if rgb == 'yes':
+        rgb_ans = str(input('\nBy how much would you like to alter the brightness?\nTo dim the image, you '
+                            'can divide the values by'
+                            ' 2, 4 or 6, or multiply them by 2, 4 or 6 to make the image brighter.\nTo choose,'
+                            ' type \"divide by'
+                            ' \'number\' \", or \"multiply by \'number\' \". ')).lower()
+        if rgb_ans == 'divide by 2':
+            im_to_edit.point(half).show()
+            im_to_edit.save()
+        elif rgb_ans == 'divide by 4':
+            im_to_edit.point(quarter).show()
+            im_to_edit.save()
+        elif rgb_ans == 'divide by 6':
+            im_to_edit.point(sixth).show()
+            im_to_edit.save()
+        elif rgb_ans == 'multiply by 2':
+            im_to_edit.point(two).show()
+            im_to_edit.save()
+        elif rgb_ans == 'multiply by 4':
+            im_to_edit.point(four).show()
+            im_to_edit.save()
+        elif rgb_ans == 'multiply by 6':
+            im_to_edit.point(six).show()
+            im_to_edit.save()
     else:
         print('\nThere are no other filters that can be added to this images.')
 
     im_to_edit.save()
 
     # Asks if the user wants to do it again
-    restart = input('Would you like to add another another photo? ').lower()
+    restart = input('\nWould you like to edit another another photo? ').lower()
     if restart == 'yes':
         script()
     elif restart == 'no':
