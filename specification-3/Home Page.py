@@ -37,6 +37,7 @@ def home():
 @app.route('/first')
 # defines the first function, anything outside will be rendered in the browser
 def first():
+    # gets the file path for spec1
     text = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-1/char_freq_plot.py', 'r+')
     content = text.read()
     text.close()
