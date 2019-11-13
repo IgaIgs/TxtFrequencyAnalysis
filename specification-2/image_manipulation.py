@@ -1,4 +1,4 @@
-from PIL import Image, ImageFilter, ImageColor
+from PIL import Image, ImageFilter
 from pathlib import Path
 
 impath = Path("""C:/Users/nick/Desktop/Jordan Practicals/Team-Project/practical-3/resources/img/spec2-images""")
@@ -142,6 +142,15 @@ def script():
 
     im_to_edit.show()
 
+    def save():
+        ask = input('Would you like to save the image with this filter? ').lower()
+        if ask == 'yes':
+            im_to_edit.save()
+        elif ask == 'no':
+            print('The image will go back to its original format.')
+
+    save()
+
     def askforbox():
         # Asking user if they want a box blur
         box_blur = input('\nWould you like to add a box blur? ').lower()
@@ -152,7 +161,7 @@ def script():
                 rad = int(input('\nA box blur with what strength? '))
                 im_to_edit.filter(ImageFilter.BoxBlur(rad)).show()
             boxblur()
-            im_to_edit.save()
+            save()
         elif box_blur == 'no':
             print('\nAn box blur will not be added.')
         else:
@@ -177,7 +186,7 @@ def script():
                     except ValueError:
                         print('\nThis is a bad filter size. Please try again.')
             rankfilter()
-            im_to_edit.save()
+            save()
         elif rank_filter == 'no':
             print('\nAn rank filter will not be added.')
         else:
@@ -197,7 +206,7 @@ def script():
                 threshold = int(input('And with what minimum brightness change? '))
                 im_to_edit.filter(ImageFilter.UnsharpMask(rad, percent, threshold)).show()
             unsharp()
-            im_to_edit.save()
+            save()
         elif unsharp_mask == 'no':
             print('\nAn unsharp mask filter will not be added.')
         else:
@@ -205,14 +214,19 @@ def script():
             askforunsharp()
     askforunsharp()
 
-    # Asking if they want the image to be greyscale
-    grey = input('\nWould you like to convert the image to greyscale? ').lower()
+    def greyscale():
+        # Asking if they want the image to be greyscale
+        grey = input('\nWould you like to convert the image to greyscale? ').lower()
 
-    if grey == 'yes':
-        im_to_edit.convert('L').show()
-        im_to_edit.save()
-    else:
-        print('\nThe image will maintain its original colours.')
+        if grey == 'yes':
+            im_to_edit.convert('L').show()
+            save()
+        elif grey == 'no':
+            print('\nThe image will maintain its original colours.')
+        else:
+            print('\nSorry, I did not understand that! Please try again')
+            greyscale()
+    greyscale()
 
     # Altering the image brightness
     rgb = input('\nWould you like to make this image dimmer or brighter? ').lower()
@@ -234,6 +248,7 @@ def script():
 
     def six(val):
         return val * 6
+
     if rgb == 'yes':
         rgb_ans = str(input('\nBy how much would you like to alter the brightness?\nTo dim the image, you '
                             'can divide the values by'
@@ -242,26 +257,24 @@ def script():
                             ' \'number\' \", or \"multiply by \'number\' \". ')).lower()
         if rgb_ans == 'divide by 2':
             im_to_edit.point(half).show()
-            im_to_edit.save()
+            save()
         elif rgb_ans == 'divide by 4':
             im_to_edit.point(quarter).show()
-            im_to_edit.save()
+            save()
         elif rgb_ans == 'divide by 6':
             im_to_edit.point(sixth).show()
-            im_to_edit.save()
+            save()
         elif rgb_ans == 'multiply by 2':
             im_to_edit.point(two).show()
-            im_to_edit.save()
+            save()
         elif rgb_ans == 'multiply by 4':
             im_to_edit.point(four).show()
-            im_to_edit.save()
+            save()
         elif rgb_ans == 'multiply by 6':
             im_to_edit.point(six).show()
-            im_to_edit.save()
+            save()
     else:
         print('\nThere are no other filters that can be added to this images.')
-
-    im_to_edit.save()
 
     # Asks if the user wants to do it again
     restart = input('\nWould you like to edit another another photo? ').lower()
