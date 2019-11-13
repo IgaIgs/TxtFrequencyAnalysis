@@ -31,6 +31,7 @@ def count_words():
     # put the frequency of words in order from the most frequent to the least frequent by turning the dictionary
     # into a list of tuples
     words_dict = {}
+    # sort the dictionary by its values and in descending order using the sorted() method
     words_freq_sorted = sorted(words_freq.items(), key=lambda kv: kv[1], reverse=True)
     # turn the sorted list of tuples back to a, now sorted, dictionary to be used for csv writer later
     for i in words_freq_sorted:
@@ -51,6 +52,7 @@ def count_characters():
     return freq_counter(temp_string)
 
 
+# compile all of the working functions' calls in one place
 if __name__ == '__main__':
 
     info_words = 'This is a list of all words in the file ordered from the most to the least frequent:'
