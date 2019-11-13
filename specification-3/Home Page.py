@@ -37,12 +37,23 @@ def home():
 @app.route('/first')
 # defines the first function, anything outside will be rendered in the browser
 def first():
-    # gets the file path for spec1
-    text = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-1/char_freq_plot.py', 'r+')
+    # gets the file path for book analysis and will allow me to display it
+    text = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-1/book_analysis.py', 'r+')
+    # gets the file path for char freq and will allow me to display it
+    text1 = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-1/char_freq_plot.py', 'r+')
+    # gets the file path for the csv writer and will allow me to display it
+    text2 = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-1/csvwriter.py', 'r+')
+    # gets the file path for the freq and will allow me to display it
+    text3 = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-1/freq.py', 'r+')
+    # sets a variable content to text
     content = text.read()
+    content1 = text1.read()
+    content2 = text2.read()
+    content3 = text3.read()
+    # closes the file reading
     text.close()
-    # renders the spec1.html file
-    return render_template("spec1.html", text=content)
+    # renders the spec1.html file and passes the text variable to the spec1 html file
+    return render_template("spec1.html", text=content, text1=content1, text2=content2, text3=content3)
 
 
 # binds a URL to the second function
