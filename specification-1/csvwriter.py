@@ -22,8 +22,7 @@ def csv_writer(freq_words):
         count = 0
 
         # keep writing row into the csv file unless the desired number of most frequent words is reached or the end
-        # of the word list has been reached (just for safety)
-        while count < top_words_print: # or count < len(word_list):
+        while count < top_words_print:
             writer.writerow({'Word': word_list[count], 'Frequency': freq_list[count]})
             # for each round of the loop, add 1 to the counter list
             count += 1
