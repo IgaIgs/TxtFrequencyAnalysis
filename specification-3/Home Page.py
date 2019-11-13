@@ -1,6 +1,5 @@
 # imports the Flask library and installs the needed libraries
 from flask import Flask, render_template, redirect, url_for, request
-
 app = Flask(__name__)
 
 
@@ -48,6 +47,12 @@ def second():
     # renders the spec2.html file
     return render_template("spec2.html")
 
+# binds a URL to the third function
+@app.route('/third')
+# defines the second function, anything outside will be rendered in the browser
+def third():
+    # renders the spec2.html file
+    return render_template("spec3.html")
 
 # binds a URL to the fourth function
 @app.route('/fourth')
