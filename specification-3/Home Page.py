@@ -71,15 +71,39 @@ def second():
 @app.route('/third')
 # defines the second function, anything outside will be rendered in the browser
 def third():
+    # gets the file path for the home page central python file and will allow me to display it
+    text = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-3/Home Page.py', 'r+')
+    # gets the file path for the login html file and will allow me to display it
+    text1 = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-3/templates/login.html', 'r+')
+    # gets the file path for the homePage html file and will allow me to display it
+    text2 = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-3/templates/homePageHTML.html', 'r+')
+    # gets the file path for the spec1 html file and will allow me to display it
+    text3 = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-3/templates/spec1.html', 'r+')
+    # gets the file path for the spec2 html file and will allow me to display it
+    text4 = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-3/templates/spec2.html', 'r+')
+    # gets the file path for the spec3 html file and will allow me to display it
+    text5 = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-3/templates/spec3.html', 'r+')
+    # gets the file path for the spec4 html file and will allow me to display it
+    text6 = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-3/templates/spec4.html', 'r+')
+    # sets a variable content to text
+    content = text.read()
+    content1 = text1.read()
+    content2 = text2.read()
+    content3 = text3.read()
+    content4 = text4.read()
+    content5 = text5.read()
+    content6 = text6.read()
     # renders the spec2.html file
-    return render_template("spec3.html")
+    return render_template("spec3.html", text=content, text1=content1, text2=content2, text3=content3, text4=content4,
+                           text5=content5, text6=content6)
 
 # binds a URL to the fourth function
 @app.route('/fourth')
 # defines the fourth function, anything outside will be rendered in the browser
 def fourth():
     # gets the file path for spec4 and will allow me to display it
-    text = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-4/web_scraping_olly/web_scraping_olly.py', 'r+')
+    text = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-4/web_scraping_olly'
+                '/web_scraping_olly.py', 'r+')
     # sets a variable content to text
     content = text.read()
     # renders the spec4.html file
