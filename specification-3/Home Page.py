@@ -45,15 +45,18 @@ def first():
     text2 = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-1/csvwriter.py', 'r+')
     # gets the file path for the freq and will allow me to display it
     text3 = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-1/freq.py', 'r+')
+    # gets the file path for the markdown findings file and will allow me to display it
+    text4 = open('/Users/georgehayfield/PycharmProjects/practical-3/specification-1/FINDINGS.md', 'r+')
     # sets a variable content to text
     content = text.read()
     content1 = text1.read()
     content2 = text2.read()
     content3 = text3.read()
+    content4 = text4.read()
     # closes the file reading
     text.close()
     # renders the spec1.html file and passes the text variable to the spec1 html file
-    return render_template("spec1.html", text=content, text1=content1, text2=content2, text3=content3)
+    return render_template("spec1.html", text=content, text1=content1, text2=content2, text3=content3, text4=content4)
 
 
 # binds a URL to the second function
