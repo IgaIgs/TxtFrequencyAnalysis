@@ -3,7 +3,6 @@ from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
 
-
 # binds a URL to the login function
 # specifies the GET and POST methods as by default only GET
 # we will need to POST request after logging in
