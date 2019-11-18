@@ -27,7 +27,7 @@
             /* Sets the colour of the text */
             color: #f2f2f2;
             /* Sets the proportion of each tab*/
-            width: 20%;
+            width: 15.5%;
             /* Sets the positions of the text on the navigation bar to the center */
             text-align: center;
             /* Gives padding around the text */
@@ -68,11 +68,12 @@
             <a href="/home">Home</a>
             <a class="active" href="/first">Specification 1</a>
             <a href="/second">Specification 2</a>
+            <a href="/third">Specification 3</a>
             <a href="/fourth">Specification 4</a>
             <p><font color = "white">CSC2014 Group Project</font></p>
         </div>
 
-        <body>
+        <body onload="readFile();">
             <center>
                 <!-- Creates a style to pad text on the page-->
                 <style>
@@ -86,14 +87,41 @@
                     /* sets the background colour of the container */
                     background-color: #172235;
                 }
+                div.ex2
+                {
+                    white-space: pre-wrap;
+                }
                 </style>
                 <!-- Calls the to previously defined style to display the text on -->
-                <div class="ex1"><font color = "gray"> <h2> Welcome to Specification 1<br>
+                <div class="ex1">
+                    <font color = "gray">
+                    <h2> Welcome to Specification 1<br>
                     -------------------------------------------<br>
-                    <br>
-                    <h3>INSERT DESCRIPTION OF SPECIFICATION 1
-                    </h3>
-                </h2></font></div>
+                    </h2>
+                        <h3> Below is the source code for Specification 1 of Project 3. There are 5 files that have all
+                            been inserted below with file name headings. Within the project you are able to read in a
+                            '.txt' file and parse the content of the file. A frequency analysis of the characters and
+                            words of the '.txt' file are also able to be produced. The analysis is output to a CSV file.
+                            The frequency analysis is also presented visually using the Matplotlib plotting library and
+                            a Markdown file combines all of the findings from the analysis in a single place.
+                        </h3>
+                    </font>
+<!-- Displays the code that was imported into the python file on the spec1 web page -->
+<pre align ="left"><font color = "gray">
+<h3>Book Analysis File:</h3>
+{{ text }}<br>
+<h3>Character Frequency File:</h3>
+{{ text1 }}<br>
+<h3>CSV Writer File:</h3>
+{{ text2 }}<br>
+<h3>Frequency File:</h3>
+{{ text3 }}<br>
+<h3>Findings File:</h3>
+{{ text4 }}
+</font>
+</pre>
+
+                </div>
             </center>
         </body>
 

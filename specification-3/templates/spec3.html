@@ -1,4 +1,4 @@
-<!-- Creates the spec2 html file -->
+<!-- Creates the spec4 html file -->
 <!DOCTYPE html>
     <html>
         <head>
@@ -60,12 +60,6 @@
             {
             background-color: #161c33;
             }
-
-
-            code
-            {
-                white-space: pre-wrap;
-            }
         </style>
         </head>
         <!-- contains the calls for the navigation class styling -->
@@ -73,8 +67,8 @@
             <!-- Creates links to other pages and displays the text to display in each tab -->
             <a href="/home">Home</a>
             <a href="/first">Specification 1</a>
-            <a class="active" href="/second">Specification 2</a>
-            <a href="/third">Specification 3</a>
+            <a href="/second">Specification 2</a>
+            <a class="active" href="/third">Specification 3</a>
             <a href="/fourth">Specification 4</a>
             <p><font color = "white">CSC2014 Group Project</font></p>
         </div>
@@ -93,31 +87,40 @@
                     /* sets the background colour of the container */
                     background-color: #172235;
                 }
-                div.ex2
-                {
-                    white-space: pre-wrap;
-                }
 
                 </style>
-                <!-- Calls the to previously defined style to display the text on -->
-                <div class="ex1"><font color = "gray"> <h2> Welcome to Specification 2<br>
-                    -------------------------------------------<br>
+                <!-- Calls the to previously defined style to display the text on-->
+                <div class="ex1"><font color = "gray"> <h2> Welcome to Specification 3<br>
+                    ------------------------------------------- <br>
                 </h2>
-                    <h3>Below is the source code for Specification 2 of Project 3. There is a single file that runs
-                        the program and explores the Pillow Python library. Within the single file you are able to
-                        read in a series of images and store them appropriately ready for their modification. You are
-                        also able to convert the images to thumbnails and name all the new files. You can also add
-                        filters to the images and modify the RGB values of the images.
-                    </h3>
+                    <h3>Below is the source code that was used to complete Specification 3 of Project 3. There are
+                    7 files that have been inserted below. The 6 HTML files that are below all are called and referenced
+                    in the main Python file. As per the specification outline I installed and made use of the Flask
+                    framework, seen in the central Python file. I have also created a home page that links to the
+                    other web pages that I created to display the other specification source code. There are also brief
+                    descriptions explaining what the code and ow it meets the objectives of the specification.</h3>
                 </font>
 <!-- Displays the code that was imported into the python file on the spec1 web page -->
 <pre align ="left"><font color = "gray">
-<h3>Image Manipulation File:</h3>
-{{ text }}</font>
+<h3>Home Page Python File:</h3>
+{{ text }}<br>
+<h3>Login HTML File:</h3>
+{{ text1 }}<br>
+<h3>Home Page HTML File:</h3>
+{{ text2 }}<br>
+<h3>Specification 1 HTML File:</h3>
+{{ text3 }}<br>
+<h3>Specification 2 HTML File:</h3>
+{{ text4 }}<br>
+<h3>Specification 3 HTML File:</h3>
+{{ text5 }}<br>
+<h3>Specification 4 HTML File:</h3>
+{{ text6 }}
+</font>
 </pre>
                 </div>
             </center>
-
+            <h2></h2>
         </body>
 
     </html>
